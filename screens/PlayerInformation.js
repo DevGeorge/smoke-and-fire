@@ -4,7 +4,7 @@ import { Button, ScrollView, Text, TextInput, View } from "react-native";
 import Player from "../models/Player";
 import { state } from "../GlobalState";
 import { useSnapshot } from "valtio";
-
+import styles from "../GlobalStyles";
 const PlayerInformation = ({ navigation }) => {
   let snap = useSnapshot(state);
   let numb = snap.numberOfPlayers;
@@ -28,7 +28,7 @@ const PlayerInformation = ({ navigation }) => {
   };
   const handleChangeInput = (index, text) => {
     const names = [...inputField];
-    names[index].setName(text);
+    names[index].playerName = text;
     setInputField(names);
   };
 
@@ -41,9 +41,7 @@ const PlayerInformation = ({ navigation }) => {
         justifyContent: "space-between",
       }}
     >
-      <Text style={{ fontSize: 30, color: "#a22c22", padding: 10 }}>
-        Write down the players names below
-      </Text>
+      <Text style={styles.subTitle}>Write down the players names below</Text>
       <ScrollView
         style={{
           margin: 10,
@@ -64,7 +62,7 @@ const PlayerInformation = ({ navigation }) => {
               {index + 1 + ": "}
             </Text>
             <TextInput
-              value={input.getName()}
+              value={input.playerName}
               style={{
                 flex: 1,
                 color: "#a22c22",

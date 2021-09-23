@@ -13,17 +13,21 @@ export default StyleSheet.create({
   },
   title: {
     fontSize: 45,
+    textAlign: "center",
     color: "#a22c22",
     margin: 20,
     fontWeight: "bold",
   },
   subTitle: {
     fontSize: 20,
+    textAlign: "center",
+
     color: "#a22c22",
     margin: 20,
   },
   startLabel: {
     padding: 10,
+    textAlign: "center",
     margin: 10,
     justifyContent: "space-evenly",
   },

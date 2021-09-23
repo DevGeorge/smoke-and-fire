@@ -2,16 +2,11 @@ class Player {
   constructor(id) {
     this.id = id;
     this.playerName = "";
-    this.cards = [""];
-  }
-  setName(name) {
-    return (this.playerName = name);
+    this.cards = [];
+    this.turn = 0;
   }
   getName() {
     return this.playerName;
-  }
-  getTurn() {
-    return this.cards.length;
   }
   isNameFilled() {
     let bool = false;
@@ -25,6 +20,9 @@ class Player {
   }
   pickCard(card) {
     this.cards.push(card);
+  }
+  getTurn() {
+    return this.turn;
   }
 }
 export default Player;

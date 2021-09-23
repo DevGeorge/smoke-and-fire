@@ -10,12 +10,9 @@ import PickTheSuite from "./PickTheSuite";
 
 const GameState = (props) => {
   let snap = useSnapshot(state);
-  let gameIsOver = false;
-  let allPlayers = snap.allPlayers;
-  let currentPlayerTurn = snap.currentPlayerIndex;
+
   const componentToRender = () => {
-    // while (!snap.gameover) {
-    switch (allPlayers[currentPlayerTurn].getTurn()) {
+    switch (snap.allPlayers[snap.currentPlayerIndex].turn) {
       case 0:
         return <FireOrSmoke />;
       case 1:
@@ -26,7 +23,7 @@ const GameState = (props) => {
         return <PickTheSuite />;
     }
   };
+
   return <View>{componentToRender()}</View>;
 };
-
 export default GameState;

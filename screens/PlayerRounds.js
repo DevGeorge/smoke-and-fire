@@ -1,42 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, Alert } from "react-native";
+import { Text, View, Alert, Image } from "react-native";
 import styles from "../GlobalStyles";
 import GameState from "../components/GameState";
-import Cards from "../components/Cards";
+import Cards from "../components/CardContainer";
 import { state } from "../GlobalState";
 import { useSnapshot } from "valtio";
+import CardContainer from "../components/CardContainer";
 
 const PlayerRounds = ({ navigation }) => {
-  let snap = useSnapshot(state);
-  const handleRestartSamePlayers = () => {
-    setCurrentPlayer();
-  };
-  const handleRestartNewPlayers = () => {
-    navigation.naviagte("Number of Players");
-  };
-  useEffect(
-    () =>
-      navigation.addListener("beforeRemove", (e) => {
-        // Prevent default behavior of leaving the screen
-        e.preventDefault();
-
-        // Prompt the user before leaving the screen
-        Alert.alert("Leave Game?", "Going back restarts the game", [
-          { text: "Don't leave", style: "cancel", onPress: () => {} },
-          {
-            text: "Discard",
-            style: "destructive",
-            // If the user confirmed, then we dispatch the action we blocked earlier
-            // This will continue the action that had triggered the removal of the screen
-            onPress: () => {
-              state.gameOver = false;
-              navigation.dispatch(e.data.action);
-            },
-          },
-        ]);
-      }),
-    [navigation]
-  );
+  const snap = useSnapshot(state);
 
   return (
     <View
@@ -68,7 +40,7 @@ const PlayerRounds = ({ navigation }) => {
         </Text>
         <GameState />
         <View style={{ padding: 30 }}>
-          <Cards />
+          <CardContainer />
         </View>
       </View>
     </View>
