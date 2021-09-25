@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Button, Text, Modal } from "react-native";
 import { useSnapshot } from "valtio";
 import { state } from "../GlobalState";
-import styles from "../GlobalStyles";
+import styles from "../../GlobalStyles";
 import Card from "./Card";
 
 const FireOrSmoke = (props) => {

@@ -2,7 +2,7 @@ import { View, Text, Image } from "react-native";
 import React, { useState } from "react";
 import { useSnapshot } from "valtio";
 import { state } from "../GlobalState";
-import styles from "../GlobalStyles";
+import styles from "../../GlobalStyles";
 import Card from "./Card";
 const CardContainer = () => {
   let snap = useSnapshot(state);

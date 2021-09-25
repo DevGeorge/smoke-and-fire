@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Text, View, Modal } from "react-native";
-import styles from "../GlobalStyles";
+import styles from "../../GlobalStyles";
 
 const StartScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
