@@ -15,15 +15,14 @@ export default StyleSheet.create({
     fontSize: 45,
     textAlign: "center",
     color: "#a22c22",
-    margin: 20,
+    margin: 5,
     fontWeight: "bold",
   },
   subTitle: {
     fontSize: 20,
     textAlign: "center",
-
     color: "#a22c22",
-    margin: 20,
+    margin: 5,
   },
   startLabel: {
     padding: 10,

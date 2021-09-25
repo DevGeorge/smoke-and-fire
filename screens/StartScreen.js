@@ -1,6 +1,6 @@
-import React from "react";
-import { Button, Text, View, Modal } from "react-native";
-import styles from "../../GlobalStyles";
+import React, { useState } from "react";
+import { Button, Text, View, Modal, ScrollView } from "react-native";
+import styles from "../GlobalStyles";
 
 const StartScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -23,9 +23,11 @@ const StartScreen = ({ navigation }) => {
         />
       </View>
       <Modal animationType="slide" visible={modalVisible} transparent={false}>
-        <View style={styles.container}>
-          <Text style={styles.subTitle}></Text>
-          <Text style={styles.subTitle}> Card you Picked: </Text>
+        <ScrollView style={{ backgroundColor: "black" }}>
+          <Text style={styles.subTitle}>How To:</Text>
+          <Text style={{ ...styles.subTitle, fontSize: 13 }}>
+            This game is an adaptaion of ride the bus card drinking game
+          </Text>
           <Button
             title="Continue"
             color="#a22c22"
@@ -33,7 +35,7 @@ const StartScreen = ({ navigation }) => {
               setModalVisible(false);
             }}
           />
-        </View>
+        </ScrollView>
       </Modal>
     </View>
   );

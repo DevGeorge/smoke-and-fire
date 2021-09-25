@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, Alert, Image } from "react-native";
-import styles from "../GlobalStyles";
 import GameState from "../components/GameState";
-import Cards from "../components/CardContainer";
 import { state } from "../GlobalState";
 import { useSnapshot } from "valtio";
 import CardContainer from "../components/CardContainer";

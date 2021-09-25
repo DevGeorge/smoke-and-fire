@@ -1,7 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import Player from "./models/Player";
 import NumberOfPlayers from "./screens/NumberOfPlayers";
 import PlayerInformation from "./screens/PlayerInformation";
 import PlayerRounds from "./screens/PlayerRounds";

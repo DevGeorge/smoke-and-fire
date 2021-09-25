@@ -3,7 +3,6 @@ import { Button, Text, View } from "react-native";
 import InputSpinner from "react-native-input-spinner";
 import styles from "../GlobalStyles";
 import { state } from "../GlobalState";
-import { buildRandomDeck } from "../models/Deck";
 const NumberOfPlayers = ({ navigation }) => {
   let players = 2;
   return (
