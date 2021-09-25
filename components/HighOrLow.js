@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Button, Text, Modal, Alert } from "react-native";
 import styles from "../GlobalStyles";
 import { useSnapshot } from "valtio";
@@ -24,32 +24,44 @@ const HighOrLow = (props) => {
     }
     return value;
   };
+  useEffect(() => {
+    console.log("After new card " + pickedCard);
+    if (
+      selected == "Higher" &&
+      translateValue(pickedCard.charAt(0)) >
+        translateValue(snap.allPlayers[snap.currentPlayerIndex].cards[0])
+    ) {
+      setPlayerCorrect(true);
+      console.log("Higher in If: " + pickedCard.charAt(0));
+      state.allPlayers[snap.currentPlayerIndex].cards.push(pickedCard);
+      setModalVisible(true);
+    } else if (
+      selected == "Lower" &&
+      translateValue(pickedCard.charAt(0)) <
+        translateValue(snap.allPlayers[snap.currentPlayerIndex].cards[0])
+    ) {
+      setPlayerCorrect(true);
+      console.log(
+        "Lower: Picked: " +
+          pickedCard.charAt(0) +
+          " current: " +
+          snap.allPlayers[snap.currentPlayerIndex].cards[0]
+      );
+      state.allPlayers[snap.currentPlayerIndex].cards.push(pickedCard);
+      setModalVisible(true);
+    } else if (selected != "") {
+      setPlayerCorrect(false);
+      setModalVisible(true);
+    }
+  }, [pickedCard]);
+
   const selectedHigher = () => {
     setSelected("Higher");
     setPickedCard(state.deck.pop());
-    if (
-      translateValue(pickedCard.charAt(0)) >
-      translateValue(snap.allPlayers[currentPlayerIndex].cards[0])
-    ) {
-      setPlayerCorrect(true);
-      state.allPlayers[snap.currentPlayerIndex].cards.push(pickedCard);
-    } else {
-      setPlayerCorrect(false);
-    }
-    setModalVisible(true);
   };
   const selectedLower = () => {
     setSelected("Lower");
     setPickedCard(state.deck.pop());
-    if (
-      translateValue(pickedCard.charAt(0)) <
-      translateValue(snap.allPlayers[snap.currentPlayerIndex].cards[0])
-    ) {
-      setPlayerCorrect(true);
-      state.allPlayers[snap.currentPlayerIndex].cards.push(pickedCard);
-    } else {
-      setPlayerCorrect(false);
-    }
   };
 
   const continuePlaying = () => {

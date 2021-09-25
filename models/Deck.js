@@ -3,7 +3,7 @@ export const buildRandomDeck = () => {
   return randomize(cards);
 };
 export const build4Decks = () => {
-  let cards = [...buildDeck, ...buildDeck(), ...buildDeck(), ...buildDeck()];
+  let cards = [...buildDeck(), ...buildDeck(), ...buildDeck(), ...buildDeck()];
   return randomize(cards);
 };
 const buildDeck = () => {
