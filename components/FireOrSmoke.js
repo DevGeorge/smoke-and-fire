@@ -6,7 +6,7 @@ import styles from "../GlobalStyles";
 import Card from "./Card";
 
 const FireOrSmoke = (props) => {
-  let snap = useSnapshot(state, { sync: true });
+  let snap = useSnapshot(state);
   const [modalVisible, setModalVisible] = useState(false);
   const [selected, setSelected] = useState("");
   const [playerCorrect, setPlayerCorrect] = useState(false);
