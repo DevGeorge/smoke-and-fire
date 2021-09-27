@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
+import GameOver from "./screens/GameOver";
 import NumberOfPlayers from "./screens/NumberOfPlayers";
 import PlayerInformation from "./screens/PlayerInformation";
 import PlayerRounds from "./screens/PlayerRounds";
@@ -46,6 +47,17 @@ export default function App() {
           component={PlayerRounds}
           options={{
             title: " ",
+            headerLeft: null,
+            headerStyle: {
+              backgroundColor: "black",
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Game Over"
+          options={{
+            titile: "Winner winner chicken dinner",
+            headerLeft: null,
             headerStyle: {
               backgroundColor: "black",
             },

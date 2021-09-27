@@ -1,23 +1,29 @@
-import React, {useState} from "react";
-import { View, Text, Modal} from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text, Modal, Dimensions, DevSettings } from "react-native";
 import ConfettiCannon from "react-native-confetti-cannon";
 import { useSnapshot } from "valtio";
 import { state } from "../GlobalState";
-import styles from "../GlobalStyles"
+import styles from "../GlobalStyles";
 import Button from "../components/Button";
-
-const GameOver = ( { navigation }) => {
+import Player from "../models/Player";
+// Displays Modal with confetti
+const GameOver = ({ navigation }) => {
   let snap = useSnapshot(state);
+  const widthGet = Dimensions.get("screen") * 0.5 - 10;
   const [modalVisible] = useState(true);
-const continuePlaying = () =>{
-  state.allPlayers = []
- navigation.navigate("Home")
-}
+  const continuePlaying = () => {
+    state.allPlayers = [new Player(0)];
+    navigation.navigate("Home");
+  };
+  useEffect(() => {
+    return () => {};
+  }, []);
   return (
     <View style={{ flex: 1 }}>
+      <Button title="" />
       <Modal animationType="slide" visible={modalVisible} transparent={true}>
         <View style={styles.container}>
-          <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} />
+          <ConfettiCannon count={200} origin={{ x: widthGet, y: -60 }} />
           <Text style={styles.title}>
             Congratulations on Winning the Game{" "}
             {snap.allPlayers[snap.currentPlayerIndex].playerName} !!!

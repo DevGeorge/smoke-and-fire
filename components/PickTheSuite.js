@@ -45,37 +45,36 @@ const PickTheSuite = (props) => {
 
   const selectedDiamond = () => {
     setSelected("Diamond");
-    console.log("before pick card" + pickedCard);
     setPickedCard(state.deck.pop());
   };
   const selectedHeart = () => {
     setSelected("Heart");
-    console.log("before pick card" + pickedCard);
 
     setPickedCard(state.deck.pop());
   };
   const selectedSpade = () => {
     setSelected("Spade");
-    console.log("before pick card" + pickedCard);
     setPickedCard(state.deck.pop());
   };
   const selectedClover = () => {
     setSelected("Clover");
-    console.log("before pick card" + pickedCard);
-
     setPickedCard(state.deck.pop());
   };
   const continuePlaying = () => {
-    setModalVisible(!modalVisible);
+    setModalVisible(false);
 
     if (snap.currentPlayerIndex <= snap.allPlayers.length - 2) {
       if (playerCorrect) {
         state.allPlayers[snap.currentPlayerIndex].turn++;
+      } else {
+        state.currentPlayerIndex++;
       }
       console.log("Reached end of continue");
     } else {
       if (playerCorrect) {
         state.allPlayers[snap.currentPlayerIndex].turn++;
+      } else {
+        state.currentPlayerIndex = 0;
       }
       console.log("Reached end of continue");
     }

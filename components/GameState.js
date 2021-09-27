@@ -8,18 +8,12 @@ import BetweenOrOutside from "./BetweenOrOutside";
 import FireOrSmoke from "./FireOrSmoke";
 import HighOrLow from "./HighOrLow";
 import PickTheSuite from "./PickTheSuite";
-import GameOver from "./GameOver";
+import GameOver from "../screens/GameOver";
 
 const GameState = ({ navigation }) => {
   let snap = useSnapshot(state);
 
   const componentToRender = () => {
-    console.log(
-      "all players: " +
-        snap.allPlayers +
-        " Current player index: " +
-        snap.currentPlayerIndex
-    );
     switch (snap.allPlayers[snap.currentPlayerIndex].getTurn()) {
       case 0:
         return <FireOrSmoke />;
@@ -30,7 +24,7 @@ const GameState = ({ navigation }) => {
       case 3:
         return <PickTheSuite />;
       case 4:
-        return <GameOver />;
+        navigation.navigate("Game Over");
     }
   };
 

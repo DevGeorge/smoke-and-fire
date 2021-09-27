@@ -93,7 +93,7 @@ const HighOrLow = (props) => {
   }, []);
 
   const continuePlaying = () => {
-    setModalVisible(!modalVisible);
+    setModalVisible(false);
     if (snap.currentPlayerIndex <= snap.allPlayers.length - 2) {
       if (playerCorrect) {
         state.allPlayers[snap.currentPlayerIndex].turn++;
