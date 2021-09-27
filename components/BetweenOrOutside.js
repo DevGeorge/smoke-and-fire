@@ -58,7 +58,6 @@ const BetweenOrOutside = () => {
   };
 
   useEffect(() => {
-    console.log("After new card between/outside " + pickedCard);
     if (
       selected == "Between" &&
       translateValue(pickedCard.charAt(0)).between(
@@ -96,9 +95,7 @@ const BetweenOrOutside = () => {
     }
   }, [pickedCard]);
   useEffect(() => {
-    return () => {
-      console.log("cleaned up");
-    };
+    return () => {};
   }, []);
 
   const selectedBetween = () => {
@@ -145,7 +142,7 @@ const BetweenOrOutside = () => {
           />
         </View>
       </Modal>
-      <View >
+      <View>
         <Button
           title="Between"
           color="#a22c22"
@@ -153,7 +150,7 @@ const BetweenOrOutside = () => {
             selectedBetween();
           }}
         />
-              <Text style={styles.title}> or </Text>
+        <Text style={styles.title}> or </Text>
 
         <Button
           title="Outside of"

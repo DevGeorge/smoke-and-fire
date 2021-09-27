@@ -10,7 +10,7 @@ import Button from "../components/Button";
 const PlayerInformation = ({ navigation }) => {
   let snap = useSnapshot(state);
   let numb = snap.numberOfPlayers;
-  let arr = [...getPlayers(numb)];
+  let arr = getPlayers(numb);
   const [inputField, setInputField] = useState(arr);
 
   const checkInputs = () => {
@@ -57,7 +57,7 @@ const PlayerInformation = ({ navigation }) => {
               flexDirection: "row",
               alignItems: "center",
               margin: 10,
-              borderColor: "#a22c22"
+              borderColor: "#a22c22",
             }}
             key={index}
           >
@@ -78,10 +78,7 @@ const PlayerInformation = ({ navigation }) => {
             />
           </View>
         ))}
-        <Button
-          title="Start Game"
-          onPress={() => checkInputs()}
-        />
+        <Button title="Start Game" onPress={() => checkInputs()} />
       </ScrollView>
     </View>
   );

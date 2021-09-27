@@ -44,8 +44,6 @@ const HighOrLow = (props) => {
     }
   };
   useEffect(() => {
-    console.log("after picked card high/low " + pickedCard);
-
     if (
       selected == "Higher" &&
       translateValue(pickedCard.charAt(0)) >
@@ -77,19 +75,15 @@ const HighOrLow = (props) => {
 
   const selectedHigher = () => {
     setSelected("Higher");
-    console.log("before pick card" + pickedCard);
     setPickedCard(state.deck.pop());
   };
   const selectedLower = () => {
     setSelected("Lower");
-    console.log("before pick card" + pickedCard);
 
     setPickedCard(state.deck.pop());
   };
   useEffect(() => {
-    return () => {
-      console.log("high or low cleaned up");
-    };
+    return () => {};
   }, []);
 
   const continuePlaying = () => {
@@ -99,13 +93,11 @@ const HighOrLow = (props) => {
         state.allPlayers[snap.currentPlayerIndex].turn++;
       }
       state.currentPlayerIndex++;
-      console.log("Reached end of continue");
     } else {
       if (playerCorrect) {
         state.allPlayers[snap.currentPlayerIndex].turn++;
       }
       state.currentPlayerIndex = 0;
-      console.log("Reached end of continue");
     }
   };
   return (

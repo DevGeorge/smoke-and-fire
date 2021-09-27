@@ -16,7 +16,6 @@ const FireOrSmoke = () => {
   //Selection Fire, if correct puts into players cards
 
   useEffect(() => {
-    console.log("after picked card smoke/fire " + pickedCard);
     if (
       selected == "Smoke" &&
       (pickedCard.charAt(1) == "s" || pickedCard.charAt(1) == "c")
@@ -45,9 +44,7 @@ const FireOrSmoke = () => {
     setPickedCard(state.deck.pop());
   };
   useEffect(() => {
-    return () => {
-      console.log("cleaned up");
-    };
+    return () => {};
   }, []);
 
   //Selection Smoke, if correct puts into players card
@@ -63,13 +60,11 @@ const FireOrSmoke = () => {
         state.allPlayers[snap.currentPlayerIndex].turn++;
       }
       state.currentPlayerIndex++;
-      console.log("Reached end of continue");
     } else {
       if (playerCorrect) {
         state.allPlayers[snap.currentPlayerIndex].turn++;
       }
       state.currentPlayerIndex = 0;
-      console.log("Reached end of continue");
     }
   };
   return (

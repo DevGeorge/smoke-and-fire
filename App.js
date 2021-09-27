@@ -6,6 +6,7 @@ import NumberOfPlayers from "./screens/NumberOfPlayers";
 import PlayerInformation from "./screens/PlayerInformation";
 import PlayerRounds from "./screens/PlayerRounds";
 import StartScreen from "./screens/StartScreen";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -55,8 +56,9 @@ export default function App() {
         />
         <Stack.Screen
           name="Game Over"
+          component={GameOver}
           options={{
-            titile: "Winner winner chicken dinner",
+            title: "Winner winner chicken dinner",
             headerLeft: null,
             headerStyle: {
               backgroundColor: "black",

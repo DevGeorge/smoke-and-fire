@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Modal, Alert } from "react-native";
+import { View, Text, Modal } from "react-native";
 import styles from "../GlobalStyles";
 import { useSnapshot } from "valtio";
 import { state } from "../GlobalState";
@@ -14,8 +14,6 @@ const PickTheSuite = (props) => {
   const [selected, setSelected] = useState("");
   const [textColor, setTextColor] = useState("red");
   useEffect(() => {
-    console.log("after picked card high/low " + pickedCard);
-
     if (selected == "Clover" && pickedCard.charAt(1) == "c") {
       setPlayerCorrect(true);
       state.allPlayers[snap.currentPlayerIndex].cards.push(pickedCard);
@@ -69,20 +67,16 @@ const PickTheSuite = (props) => {
       } else {
         state.currentPlayerIndex++;
       }
-      console.log("Reached end of continue");
     } else {
       if (playerCorrect) {
         state.allPlayers[snap.currentPlayerIndex].turn++;
       } else {
         state.currentPlayerIndex = 0;
       }
-      console.log("Reached end of continue");
     }
   };
   useEffect(() => {
-    return () => {
-      console.log("cleaned up");
-    };
+    return () => {};
   }, []);
 
   return (
@@ -97,7 +91,7 @@ const PickTheSuite = (props) => {
           alignItems: "center",
         }}
       >
-        <Button title="Hearts" style={{}} onPress={() => selectedHeart()} />
+        <Button title="Hearts" onPress={() => selectedHeart()} />
         <Button title="Spades" onPress={() => selectedSpade()} />
         <Button title="Diamonds" onPress={() => selectedDiamond()} />
         <Button title="Clovers" onPress={() => selectedClover()} />

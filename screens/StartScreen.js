@@ -1,22 +1,37 @@
 import React, { useState } from "react";
-import {  Text, View, Modal, ScrollView } from "react-native";
+import { Text, View, Modal, ScrollView } from "react-native";
 import styles from "../GlobalStyles";
 import Button from "../components/Button";
 
 const StartScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
-
+  const getInformation = () => {
+    setModalVisible(false);
+    navigation.navigate("Number of Players");
+  };
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        backgroundColor: "black",
+        flex: 1,
+        alignItems: "center",
+      }}
+    >
+      <View
+        style={{
+          ...styles.startLabel,
+          marginTop: 100,
+          justifyContent: "center",
+        }}
+      ></View>
       <Text style={styles.title}>Smoke & Fire</Text>
+
       <View style={styles.startLabel}>
         <Button
           title="Start Game"
           color="#a22c22"
-          onPress={() => navigation.navigate("Number of Players")}
+          onPress={() => getInformation()}
         />
-      </View>
-      <View style={styles.startLabel}>
         <Button
           title="How to Play"
           color="#a22c22"
